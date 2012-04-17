@@ -9,4 +9,13 @@ class ItemTest extends Specification {
             new Item().lifeTime == 0
     }
 
+    def "OneTick"() {
+        setup:
+            def item = new Item()
+        when:
+            item.tick()
+        then:
+            item.lifeTime == old(item.lifeTime) + 1
+    }
+
 }
